@@ -102,15 +102,90 @@ body
 		transform: $click
 		transition: all .2s
 	
-/* ----- Titles ----- */
+
+/* ----- Titles & text----- */
 .title
 	font: 2rem/1.25 $text-font
 	font-weight: 600
-	color: $text-color
-	opacity: .8	
+	color: rgba($text-color, .8)
 	&--bold
 		font-weight: 700
 		text-align: center
+.text
+	color: rgba($text-color, .5)
+	font: 1.125rem/1.56 $text-font
+
+
+/* ----- slick slider reset ----- */
+.slick-slide
+	outline: none
+
+.slick-prev, .slick-next
+	font-size: 0
+	line-height: 0
+	position: absolute
+	top: 50%
+	display: block
+	width: 12px
+	height: 24px
+	padding: 0
+	transform: translate(0, -50%)
+	cursor: pointer
+	color: transparent
+	border: none
+	outline: none
+	background: url('../img/icons/slider-arrows.png') no-repeat
+	opacity: 1
+	z-index: 1
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover, .slick-next:focus
+	color: transparent
+	outline: none
+.slick-prev
+	left: 0
+	background-position: 0 0
+.slick-next
+	right: 0
+	background-position: 100% 0
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
+	opacity: .5
+		
+/* Dots */
+.slick-dotted.slick-slider
+	margin-bottom: 30px
+
+.slick-dots
+	display: inline-block
+	margin: 0
+	padding: 0 0 0 96px
+	position: absolute
+	bottom: 50px
+	list-style: none
+	text-align: center
+.slick-dots li
+	position: relative
+	display: inline-block
+	width: 12px
+	height: 12px
+	margin: 0 5px
+	padding: 0
+	cursor: pointer
+.slick-dots li button
+	font-size: 0
+	line-height: 0
+	display: block
+	width: 12px
+	height: 12px
+	cursor: pointer
+	color: transparent
+	border: 0
+	border-radius: 50%
+	outline: none
+	background: #c6cbce
+.slick-dots li.slick-active button
+	background-color: #dd2f41
 
 
 
@@ -202,13 +277,53 @@ body
 	search
  ------------------------------------- */
 .search
-	padding: 88px 0 25px
+	padding: 81px 0 25px
 	background-image: radial-gradient(circle at 100% 100%, rgba(#dce2e7, .5), rgba(#f2f2f4, .5))
+	position: relative
+	overflow: hidden
+	z-index: 0
+	&::before, &::after
+		content: ''
+		display: block
+		position: absolute
+		opacity: 0.4
+		border-style: dashed 
+		border-width: 6px
+		border-radius: 50%
+		z-index: -1
+	&::before
+		width: 600px	
+		height: 600px
+		bottom: -225px
+		left: -115px
+		border-color: #e7eaed
+	&::after
+		width: 700px
+		height: 700px
+		top: -50px
+		right: -90px
+		border-color: #e9e9e9
+
 	&__block
 		max-width: 752px
 		margin: 60px auto 0
 		&-line
 			display: flex
+			position: relative
+			&::before
+				content: ''
+				display: block
+				width: 85%
+				height: 60.3px
+				border-radius: 3.4px
+				filter: blur(13.6px)
+				background-color: rgba(#000, .15)
+				position: absolute
+				top: 12px
+				left: 50%
+				transform: translateX(-50%)
+				z-index: -1
+			
 		&-label
 			display: block
 			width: 100%
@@ -261,7 +376,7 @@ body
 			font: 18px $text-font
 			color: rgba($text-color, .5)
 			text-align: center
-			background-color: rgba(#fff, .4)
+			background-color: #f9f9f9
 			border-top-right-radius: 8px
 			border-bottom-right-radius: 8px
 			border: none
@@ -270,9 +385,9 @@ body
 			&:hover
 				cursor: pointer
 				transition: all .2s
+				background-color: darken(#f9f9f9, 2%)
 			&:active
 				transform: $click
-				background-color: rgba(#fff, .1)
 				transition: all .2s
 			&:focus
 				outline: none
@@ -280,7 +395,7 @@ body
 	/* ----- table ----- */
 	&__table
 		width: 100%
-		margin-top: 32px
+		margin-top: 22px
 		border-collapse: separate
 		border-spacing: 0 8px
 		tr
@@ -313,7 +428,7 @@ body
 					color: rgba($text-color, .15)
 
 		td
-			padding: 16px
+			padding: 14px 16px
 		th
 			font-family: $text-font
 			font-weight: 400
@@ -341,30 +456,140 @@ body
 	services
  ------------------------------------- */
 .services
-	height: 600px
 	padding: 60px 0
+	&__content
+		display: flex
+		flex-wrap: wrap
 	&__text
 		padding-top: 80px
-		width: 41.666667%
-		float: left
-		padding-right: 50px
-	&__title
+		padding-left: 96px
+		flex: 0 0 41.666667%
+		max-width: 41.666667%
 	&__descr
-		margin-top: 30px
-		font: 1.125rem/1.56 $text-font
-		color: rgba($text-color, .5)
+		margin: 30px 0 0 0
 	&__btn
+		margin-top: 45px
 		padding: 16px 28px
 		font-size: 18px
 
 	&__img
-		width: 58.333333%
+		flex: 0 0 58.333333%
+		max-width: 58.333333%
 		height: 480px
-		float: left
-		background: url('../img/slide1-img1.png') no-repeat 50% 50%
+		background: url('../img/services-img1.png') no-repeat 75% 50%
 		position: relative
 		
-		
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-resolution: 1.5dppx),
+only screen and (min-resolution: 144dpi)
+	.services__img
+		background: url('../img/services-img1x2.png') no-repeat 75% 50%
+		background-size: 406px 409px
+
+
+
+/* ------------------------------------- 
+	express test
+ ------------------------------------- */
+.test
+	padding: 74px 0 70px
+	background-image: radial-gradient(circle at 100% 100%, rgba(#dce2e7, .5), rgba(#f2f2f4, .5))
+	position: relative
+	z-index: 0
+	overflow: hidden
+	&::before, &::after
+		content: ''
+		display: block
+		position: absolute
+		opacity: 0.4
+		border-style: dashed 
+		border-width: 6px
+		border-radius: 50%
+		z-index: -1
+	&::before
+		width: 600px	
+		height: 600px
+		bottom: -300px
+		left: -115px
+		border-color: #e7eaed
+	&::after
+		width: 700px
+		height: 700px
+		top: -50px
+		right: -90px
+		border-color: #e9e9e9
+	&__title
+		text-align: center
+	&__items
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__item
+		margin-top: 60px
+		flex: 0 0 25%
+		max-width: 25%
+		text-align: center
+		padding: 0 10px
+		&-img
+			width: 128px
+			height: 128px
+			margin: 0 auto
+			border-radius: 50%
+			overflow: hidden
+		&-text
+			padding-top: 37px
+
+
+
+
+/* ------------------------------------- 
+	sheme
+ ------------------------------------- */
+.sheme
+	padding: 70px 0 56px
+	background-color: #fff
+	&__title
+		padding: 0 8.75em
+		text-align: center
+	&__img
+		margin-top: 60px
+		text-align: center
+
+
+
+/* ------------------------------------- 
+	examples
+ ------------------------------------- */
+.examples
+	padding: 80px 0
+	background-color: rgba(#000, .01)
+	background-image: radial-gradient(circle at 100% 0, rgba(#e64c4e, .025), rgba(#e64c4e, 0.01))
+	&__slide-inner
+		display: flex
+		flex-wrap: wrap
+	&__text
+		padding-top: 80px
+		padding-left: 96px
+		flex: 0 0 41.666667%
+		max-width: 41.666667%
+	&__title
+		margin-bottom: .75em
+		padding-right: 2.2em
+	&__descr
+		line-height: 1.67
+	&__img
+		flex: 0 0 58.333333%
+		max-width: 58.333333%
+		img
+			margin-left: auto
+			margin-right: auto
+			
+			
+
+
+
 
 
 

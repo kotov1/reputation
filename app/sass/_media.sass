@@ -3,11 +3,36 @@
 
 @media only screen and (max-width : 1199px)
 
+	/* ------------------------------------- 
+		search
+	 ------------------------------------- */
+	.search, .test
+		&::before, &::after
+			display: none
+
+
+
+	/* ------------------------------------- 
+		sheme
+	 ------------------------------------- */
+	.sheme
+		&__title
+			padding: 0 5em
+
+
 	/**/
 
 
 
 @media only screen and (max-width : 991px)
+
+	.slick-dots
+		display: block
+		width: 100%
+		padding-left: 0
+		bottom: 0
+
+
 
 	/* ------------------------------------- 
 		header
@@ -35,11 +60,80 @@
 			display: block
 			margin: 20px auto 0
 
+
+	/* ------------------------------------- 
+		services
+ 	 ------------------------------------- */
+	.services__text, .services__img
+		flex: 0 0 100%
+		max-width: 100%
+	.services__text
+		padding: 0
+		text-align: center
+	.services__img
+		margin-top: 50px
+		background-position: 50% 0
+		height: 410px
+		background-size: contain
+
+
+
+	/* ------------------------------------- 
+		express test
+	 ------------------------------------- */
+	.test__item
+		flex: 0 0 50%
+		max-width: 50%
+		padding: 0 25px
+
+
+
+	/* ------------------------------------- 
+		sheme
+	 ------------------------------------- */
+	.sheme
+		&__title
+			padding: 0 1em
+		&__img
+			max-width: 100%
+			overflow-x: auto
+			
+
+	/* ------------------------------------- 
+		examples
+ 	 ------------------------------------- */
+	.examples__title
+		padding-right: 0
+	.examples__text, .examples__img
+		flex: 0 0 100%
+		max-width: 100%
+	.examples__text
+		padding: 0
+		text-align: center
+	&__descr
+		margin-bottom: 5px
+	.examples__img
+		margin-top: 30px
+
+
+
+
+
+
+
 	/**/
 
 
 
 @media only screen and (max-width : 767px)
+
+	/* ------------------------------------- 
+		Common styles
+	 ------------------------------------- */
+	.title
+		font-size: 1.5rem
+	.text, .btn
+		font-size: 16px
 
 
 	/* ------------------------------------- 
@@ -79,6 +173,30 @@
 		padding-left: 15px
 		font-size: 16px
 
+
+
+	/* ------------------------------------- 
+		express test
+	 ------------------------------------- */
+	.test__item
+		flex: 0 0 100%
+		max-width: 100%
+		padding: 0 25px
+
+
+	/* ------------------------------------- 
+		sheme
+	 ------------------------------------- */
+	.sheme
+		&__title
+			padding: 0
+		&__img
+			img
+				display: block
+				max-width: 700px
+				height: auto
+				
+
 	/**/
 
 
@@ -88,6 +206,15 @@
 
 
 @media only screen and (max-width : 480px)
+
+	/* ------------------------------------- 
+		services
+ 	 ------------------------------------- */
+	.services__img
+		height: 290px
+
+
+
 
 	/**/
 

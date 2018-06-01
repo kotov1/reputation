@@ -26,7 +26,7 @@ var gulp           = require('gulp'),
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/slick-carousel/slick/slick.min.js',
-		'app/js/common.min.js'
+		'app/js/common.js'
 		])
 	.pipe(concat('scripts.js'))
 	// .pipe(uglify())
