@@ -20,6 +20,42 @@
 			padding: 0 5em
 
 
+	/* ------------------------------------- 
+		tariffs
+	 ------------------------------------- */
+	.tariffs__content
+		padding-left: 96px
+		align-items: center
+	.tariffs__info
+		flex: 0 0 50%
+		max-width: 50%
+	.tariffs__plans
+		margin-top: 50px
+		flex: 0 0 100%
+		max-width: 100%
+	.tariffs__trial
+		flex: 0 0 33%
+		max-width: 33%
+		margin-right: auto
+		margin-left: auto
+	.tariffs__trial-btn
+		padding: 9px 25%
+		
+
+
+	/* ------------------------------------- 
+		footer
+	 ------------------------------------- */
+	.footer__contacts, .footer__copy
+		margin-right: 0
+		flex: 0 0 25%
+		max-width: 25%
+	.footer__lists, .footer__social
+		flex: 0 0 65%
+		max-width: 65%
+
+
+
 	/**/
 
 
@@ -58,6 +94,7 @@
 			margin: 20px 20px 0
 		&__btn
 			display: block
+			width: 200px
 			margin: 20px auto 0
 
 
@@ -117,8 +154,27 @@
 
 
 
+	/* ------------------------------------- 
+		tariffs
+	 ------------------------------------- */
+	.tariffs__content
+		padding-left: 0
+	.tariffs__plans-main
+		flex: 0 0 544px
+		max-width: 544px
 
 
+	/* ------------------------------------- 
+		feedbacks
+	 ------------------------------------- */
+	.feedbacks__slider
+		max-width: 700px
+		.slick-next
+			right: -20px
+		.slick-prev
+			left: -20px
+	.feedbacks__slide-content
+		padding: 15px 20px
 
 
 	/**/
@@ -178,6 +234,8 @@
 	/* ------------------------------------- 
 		express test
 	 ------------------------------------- */
+	.test
+		padding: 50px 0
 	.test__item
 		flex: 0 0 100%
 		max-width: 100%
@@ -188,6 +246,7 @@
 		sheme
 	 ------------------------------------- */
 	.sheme
+		padding: 50px 0
 		&__title
 			padding: 0
 		&__img
@@ -195,12 +254,121 @@
 				display: block
 				max-width: 700px
 				height: auto
+
+	/* ------------------------------------- 
+		examples
+	 ------------------------------------- */
+	.examples
+		padding: 50px 0
+
+
+
+	/* ------------------------------------- 
+		tariffs
+	 ------------------------------------- */
+	.tariffs
+		padding: 50px 0
+	.tariffs__content
+		justify-content: center
+	.tariffs__info
+		flex: 0 0 290px
+		max-width: 290px
+	.tariffs__plans
+		display: block
+	.tariffs__plan
+		max-width: 290px !important
+		width: 100%
+	.tariffs__plans .tariffs__plan
+		margin: 0 auto 30px
+		&:last-child
+			margin-bottom: 0
+	.tariffs__trial
+		flex: 0 0 100%
+	.tariffs__trial-btn
+		font-size: 16px
+
+
+
+	/* ------------------------------------- 
+		feedbacks
+	 ------------------------------------- */
+	.feedbacks
+		padding: 50px 0
+	.feedbacks__slider
+		max-width: 700px
+		.slick-next
+			right: 0
+		.slick-prev
+			left: 0
+
 				
+
+	/* ------------------------------------- 
+		footer
+	 ------------------------------------- */
+	.footer__content
+		display: block
+		text-align: center
+	.footer__contacts, .footer__copy
+		margin-right: 0
+		flex: 0 0 100%
+		max-width: 100%
+	.footer__lists, .footer__social
+		flex: 0 0 100%
+		max-width: 100%
+	.footer__contacts
+		margin-top: 30px
+	.footer__social
+		justify-content: center
+
+
+
+	/* ------------------------------------- 
+		modal login form
+	 ------------------------------------- */
+	.login
+	.login__block
+		padding: 15px
+	.login__title
+		font-size: 1.5rem
+	.login__form
+		margin-top: 30px
+	.login__subtitle, .login__link, .login__client
+		font-size: 16px
+	.checkbox .checkbox-text
+		font-size: 14px
+		margin-left: 10px
+	.mfp-close
+		right: 0
+
+
+
 
 	/**/
 
 
 @media only screen and (max-width : 575px)
+
+	/* ------------------------------------- 
+		footer
+	 ------------------------------------- */
+	.footer__lists
+		display: block
+	.footer__lists-block
+		max-width: 100%
+	.footer__list
+		display: none
+	.footer__lists-title
+		padding: 10px 0
+		text-decoration: underline
+	.footer__list
+		margin-top: 0
+		li
+			margin: 0
+			padding: 5px
+	.footer__lists-link
+		font-size: 16px
+		
 
 	/**/
 
@@ -212,6 +380,21 @@
  	 ------------------------------------- */
 	.services__img
 		height: 290px
+
+
+
+	/* ------------------------------------- 
+		feedbacks
+	 ------------------------------------- */
+	.feedbacks__client
+		padding-right: 0
+	.feedbacks__client-img
+		position: static
+		transform: none
+		margin-top: 12px
+	.feedbacks__client-link
+
+	
 
 
 

@@ -55,6 +55,12 @@ body
 	color: $text-color
 	overflow-x: hidden
 
+a
+	text-decoration: none
+	color: #4a90e2
+	&:hover
+		color: #4a90e2
+
 .wrapper 
 	max-width: 1166px
 	margin-right: auto
@@ -82,8 +88,7 @@ body
 
 .btn
 	padding: 10px 15px
-	font: 14px $text-font
-	font-weight: 600
+	font: 600 14px $text-font
 	color: #fff
 	text-align: center
 	border-radius: 6px
@@ -101,9 +106,67 @@ body
 	&:active
 		transform: $click
 		transition: all .2s
-	
 
-/* ----- Titles & text----- */
+/* ----- checkbox----- */
+.checkbox 
+	margin-top: 16px
+	display: flex
+	align-items: center
+	cursor: pointer
+	vertical-align: top
+	font-size: 0
+
+	.checkbox-hidden
+		display: none
+
+	.checkbox-wrap
+		display: inline-block
+		vertical-align: middle
+		width: 24px
+		height: 24px
+		box-sizing: border-box
+		flex: 0 0 24px
+
+
+	.checkbox-pseudo
+		display: block
+		width: 100%
+		height: 100%
+		border-radius: 5px
+		box-sizing: border-box
+		background-color: rgba(#fff,.3)
+		position: relative
+		transition: background .2s ease-out,border .2s ease-out
+
+	.checkbox-check 
+		position: absolute
+		top: 6px
+		left: 5.5px
+		stroke: #fff
+		stroke-dasharray: 19px
+		stroke-dashoffset: 20px
+		transition: .2s ease-out
+
+	.checkbox-text
+		display: inline-block
+		color: #fff
+		font-family: $text-font
+		font-size: 18px
+		margin-left: 18px
+		a 
+			color: inherit
+			text-decoration: underline
+
+.checkbox 
+	input[type=checkbox]
+		&:checked
+			+ .checkbox-wrap
+				.checkbox-pseudo
+					.checkbox-check
+						stroke-dashoffset: 38px
+
+
+/* ----- Titles & text ----- */
 .title
 	font: 2rem/1.25 $text-font
 	font-weight: 600
@@ -135,10 +198,11 @@ body
 	border: none
 	outline: none
 	background: url('../img/icons/slider-arrows.png') no-repeat
-	opacity: 1
+	opacity: .5
 	z-index: 1
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover, .slick-next:focus
+	opacity: 1
 	color: transparent
 	outline: none
 .slick-prev
@@ -150,7 +214,7 @@ body
 
 .slick-prev.slick-disabled,
 .slick-next.slick-disabled
-	opacity: .5
+	opacity: .1
 		
 /* Dots */
 .slick-dotted.slick-slider
@@ -175,6 +239,7 @@ body
 .slick-dots li button
 	font-size: 0
 	line-height: 0
+	padding: 0
 	display: block
 	width: 12px
 	height: 12px
@@ -186,6 +251,23 @@ body
 	background: #c6cbce
 .slick-dots li.slick-active button
 	background-color: #dd2f41
+
+
+/* ----- magnific popup reset ----- */
+.mfp-wrap ~ *
+	filter: blur(5px)
+.mfp-bg
+	background: rgba(43, 40, 40, 0.75)
+	opacity: 1
+	&.formValid
+		background-color: rgba(43, 40, 40, 0.6)
+
+
+
+
+
+
+
 
 
 
@@ -270,6 +352,13 @@ body
 		&:focus
 			outline: none
 			box-shadow: 0 0 7px 0 rgba($text-color, 0.2)
+
+	&__btn
+		color: #fff
+		&:hover
+			color: #fff
+			text-decoration: none
+			
 					
 
 
@@ -449,7 +538,12 @@ body
 			&:last-child
 				text-align: right
 				font-size: .875rem
-				
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)				
+	.search__block-line
+		box-shadow: 0 3px 10px -3px rgba(#000,.1)
+		&::before
+			display: none
 			
 
 /* ------------------------------------- 
@@ -563,9 +657,9 @@ only screen and (min-resolution: 144dpi)
 	examples
  ------------------------------------- */
 .examples
-	padding: 80px 0
-	background-color: rgba(#000, .01)
-	background-image: radial-gradient(circle at 100% 0, rgba(#e64c4e, .025), rgba(#e64c4e, 0.01))
+	padding: 70px 0 30px
+	background-color: rgba(#000, .02)
+	background-image: radial-gradient(circle at 100% 0, rgba(#e64c4e, .025), rgba(#e64c4e, 0))
 	&__slide-inner
 		display: flex
 		flex-wrap: wrap
@@ -589,17 +683,546 @@ only screen and (min-resolution: 144dpi)
 			
 
 
+/* ------------------------------------- 
+	tariffs
+ ------------------------------------- */
+.tariffs
+	padding: 80px 0 82px
+	background-color: #fff
+
+	&__content
+		display: flex
+		flex-wrap: wrap
+	&__info
+		flex: 0 0 30%
+		max-width: 30%
+		&-list
+			margin: 32px 0 0 0
+			padding: 0
+			list-style-type: none
+			li
+				margin-bottom: 16px
+				display: flex
+				align-items: center
+				&:last-child
+					margin-bottom: 0
+		&-icon
+			width: 32px	
+			margin-right: 16px
+
+	&__plans
+		margin-top: 30px
+		flex: 0 0 560px
+		max-width: 560px
+		display: flex
+		justify-content: center
+		
+	&__plan
+		height: 328px
+		padding: 20px 15px
+		background-color: #f7f7f7
+		border-radius: 6px
+		text-align: center
+		position: relative
+		transition: all .2s
+		&-rec
+			transform: scale(1.05)
+			background-color: #f8f5f0
+
+		&-period
+			font: 700 1.125rem $text-font
+			color: rgba($text-color, .5)
+		&-name
+			margin: 24px 0 0 0
+			font: 700 1.125rem $text-font
+			text-transform: uppercase
+			color: $text-color
+		&-price
+			margin: 24px 0 0 0
+			font: 700 1.5rem $text-font
+			color: $text-color
+		&-descr
+			margin: 26px 0 0 0
+			font: .875rem $text-font
+			color: rgba($text-color, .5)
+		&-btn
+			display: block
+			padding: 13px 15px
+			position: absolute
+			bottom: 16px
+			left: 50%
+			transform: translateX(-50%)
+			border-radius: 6px
+			text-decoration: none
+			border: solid 2px #dedede
+			font: 700 14px/1 $text-font
+			color: rgba($text-color, .5)
+			&:hover
+				text-decoration: none
+				color: #fff
+				background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
+				border-color: transparent
+			&:active
+				transform: $click
+				transition: all .2s
+
+	&__trial
+		margin-top: 30px
+		flex: 0 0 176px
+		max-width: 176px
+		margin-right: 16px
+		padding-bottom: 90px
+		&-btn
+			display: block
+			width: 100%
+			padding: 9px 10px
+			position: absolute
+			bottom: 0
+			left: 0
+			border-radius: 6px
+			background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
+			font: 700 14px $text-font
+			color: #fff
+			text-align: center
+			transition: all .2s
+			&:hover
+				text-decoration: none
+				color: #fff
+				background-image: linear-gradient(to top, #f06b5c, #dd2f41)
+				transition: all .2s
+			&:active
+				transform: $click
+				transition: all .2s
+
+.tariffs__plans
+	.tariffs__plan
+		flex: 0 0 33%
+		max-width: 33%
+		order: 1
+		&:nth-child(2)
+			order: 0
+
+		.tariffs__plan-period
+			visibility: visible
+		&:not(.tariffs__plan-rec)
+			.tariffs__plan-period
+				visibility: hidden
+			
+
+/* ------------------------------------- 
+	feedbacks
+ ------------------------------------- */
+.feedbacks
+	padding: 70px 0
+	background-image: radial-gradient(circle at 100% 100%, rgba(#dce2e7, .5), rgba(#f2f2f4, .5))
+	&__title
+		text-align: center
+
+	&__slider
+		max-width: 752px
+		margin: 60px auto 0
+		.slick-next
+			right: -40px
+		.slick-prev
+			left: -40px
+	&__slide
+		margin-bottom: 20px
+		&-content
+			padding: 30px 40px
+			background-color: #fff
+			border-radius: 8px
+			box-shadow: 0 60px 80.1px -115px rgba(0, 0, 0, .5)
+
+	&__client
+		position: relative
+		padding-right: 165px
+		&-name
+			margin-bottom: 0
+			font: 700 1.25rem $text-font
+		&-img
+			max-width: 160px
+			position: absolute
+			right: 0
+			top: 50%
+			transform: translateY(-50%)
+
+	&__text
+		margin: 15px 0 0 0
+		font-size: 1rem
+		color: #000
+		&-visible
+			margin-bottom: 0
+		&-hidden
+			display: none
+			
+
+	&__show-btn
+		padding: 8px 0
+		background: none
+		border: none
+		color: rgba($text-color, .4)
+		transition: color .2s
+		&:hover
+			cursor: pointer
+			color: rgba($text-color, .8)
+			transition: color .2s
+		&:focus
+			outline: none
 
 
 
 
+/* ------------------------------------- 
+	footer
+ ------------------------------------- */
+.footer
+	padding: 50px 0
+	background-color: #fff
+	box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.1)
+	&__content
+		display: flex
+		flex-wrap: wrap
+	&__lists
+		flex: 0 0 60%
+		max-width: 60%
+		display: flex
+		flex-wrap: wrap
+
+		&-block
+			flex: 0 0 33%
+			max-width: 33%
+
+		&-title
+			font: 1.125rem $text-font
+			color: $text-color
+
+		&-link
+			font: .875rem/1.71 $text-font
+			color: rgba($text-color, .5)
+			transition: color .2s
+			&:hover
+				text-decoration: none
+				color: rgba($text-color, .8)
+				transition: color .2s
+
+	&__list
+		margin: 10px 0 0 0
+		padding-left: 0
+		list-style-type: none
+		li
+			margin: 8px 0
+
+	&__contacts
+		flex: 0 0 18%
+		max-width: 18%
+		margin-left: auto
+		margin-right: auto
+		
+	&__social
+		flex: 0 0 60%
+		max-width: 60%
+		display: flex
+		flex-wrap: wrap
+		margin: 0
+		padding-left: 0
+		list-style: none
+		&-link
+			display: block
+			width: 30px
+			height: 30px
+			margin-right: 18px
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			opacity: .5
+			transition: all .2s
+			&:hover
+				opacity: 1
+				cursor: pointer
+				transition: all .2s
+			&:active
+				transform: $click
+		&-vk
+			background-image: url('../img/icons/ic-vk.svg')
+		&-fb
+			background-image: url('../img/icons/ic-fb.svg')
+		&-ok
+			background-image: url('../img/icons/ic-ok.svg')
+		&-gp
+			background-image: url('../img/icons/ic-gp.svg')
+		&-ln
+			background-image: url('../img/icons/ic-ln.svg')
+		&-tw
+			background-image: url('../img/icons/ic-tw.svg')
 
 
+	&__copy
+		flex: 0 0 18%
+		max-width: 18%
+		margin-left: auto
+		margin-right: auto
+		font: .875rem/1.71 $text-font
+		color: rgba($text-color, .5)
+
+	&__social, &__copy
+		margin-top: 50px
 
 
+.contacts
+	&__tel-link
+		font: 1.125rem $text-font
+		color: $text-color
+		&:hover
+			text-decoration: none
+			color: $text-color
+		&:active
+			transform: $click
+	&__work-time
+		margin-top: 4px
+		font: .875rem $text-font
+		color: rgba($text-color, .5)
+	&__question
+		margin-top: 13px
+		display: inline-block
+		padding: 11px 25px 11px 25px
+		text-decoration: none
+		font: .875rem $text-font
+		color: rgba($text-color, .5)
+		border-radius: 4px
+		border: solid 1px #979797
+		transition: color .2s
+		&:hover
+			text-decoration: none
+			color: rgba($text-color, .8)
+			transition: color .2s
+			.contacts__question-ic
+				opacity: .8
+				transition: opacity .2s
+		&-ic
+			display: inline-block
+			width: 16px
+			height: 13px
+			margin-right: 8px
+			background: url('../img/icons/mailme.svg') no-repeat 50% 50%
+			opacity: .5
+			transform: translateY(2px)
+			transition: opacity .2s
+			
+	&__call
+		margin-top: 10px
+		font: .875rem $text-font
+		&-text
+			color: rgba($text-color, .5)
+		&-link
+			display: inline-block
+			position: relative
+			padding-bottom: 2px
+			&::before
+				content: ''
+				display: block
+				width: 100%
+				height: 1px
+				position: absolute
+				left: 0
+				bottom: 0
+				background: rgba(#4a90e2, .2)
+				z-index: 0
+				transition: all .2s
+			&:hover
+				text-decoration: none
+				&:before
+					transform: scale(0)
+					transition: all .2s
+				&:hover
+					text-decoration: none
+						
 
 
+/* ------------------------------------- 
+	modal login form
+ ------------------------------------- */
+.login
+	max-width: 364px
+	margin: 0 auto
+	&__block
+		position: relative
+		padding: 10px 0
+		text-align: center
+	&__title
+		font: 700 2.25rem/1.33 $text-font
+		color: #fff
+	&__subtitle
+		margin-top: 8px
+		font: 400 1.125rem $text-font
+		color: rgba(#fff, .5)
+	&__form
+		margin-top: 48px
+	&__label
+		position: relative
+		display: block
+	&__input
+		display: block
+		width: 100%
+		height: 64px
+		margin-bottom: 15px
+		padding: 20px 24px
+		border: none
+		border-radius: 4px
+		font: 18px $text-font
+		color: #fff
+		background-color: rgba(#fff,.3)	
+		text-align: left
+		&:hover
+		&:focus
+			padding: 28px 24px 12px
+			color: #fff
+			outline: none
+			background-color: rgba(#fff,.35)
+			box-shadow: inset 0 0 5px rgba(#fff,.2)
+			&::-webkit-input-placeholder
+				color: transparent!important
+			&:-moz-placeholder
+				color: transparent!important
+			&::-moz-placeholder
+				color: transparent!important
+			&:-ms-input-placeholder
+				color: transparent!important
+			& ~ .field-hint
+				opacity: 1
+				top: 12px
+		+ .error
+			display: block
+			margin: -10px 0 0 0
+			text-align: left
+			font: 14px $text-font
+			color: #f06b5c
+		~ .field-hint
+			font-size: 12px
+			position: absolute
+			top: 0
+			left: 24px
+			opacity: 0
+			color: rgba(#fff,.5)
+			transition: all 0.2s ease-in-out
 
+		&::-webkit-input-placeholder
+			color: rgba(#fff,.5)
+		&:-moz-placeholder
+			color: rgba(#fff,.5)
+		&::-moz-placeholder
+			color: rgba(#fff,.5)
+		&:-ms-input-placeholder
+			color: rgba(#fff,.5)
+		&:focus:required:invalid,
+			color: #fff
+		&:required:valid,
+			color: #fff
+
+	&__btn
+		padding: 22px 15px
+		display: block
+		width: 100%
+		margin-top: 15px
+		font: 700 18px $text-font
+		background: rgba(#000, .3)
+		color: rgba(#909090, .5)
+		&:hover
+			background: rgba(#000, .3)
+			color: rgba(#909090, .5)
+			cursor: default
+		&:active
+			transform: none
+			
+
+
+	&__link
+		display: inline-block
+		padding-bottom: 2px
+		font: 18px $text-font
+		color: #fff
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 100%
+			height: 1px
+			position: absolute
+			left: 0
+			bottom: 0
+			background: rgba(#fff, .2)
+			z-index: 0
+			transition: all .2s
+		&:hover
+			text-decoration: none
+			color: #fff
+			&:before
+				transform: scale(0)
+				transition: all .2s
+
+	&__remember
+		margin-top: 16px
+
+	&__client
+		display: block
+		margin-top: 55px
+		padding: 22px 15px
+		font: 700 18px $text-font
+		color: #fff
+		border-radius: 6px
+		text-align: center
+		border: solid 1px #ffffff
+		transition: all .2s
+		&:hover
+			text-decoration: none
+			color: #fff
+			background: rgba(#fff, .25)
+			transition: all .2s
+		&:active
+			transform: $click
+			transition: all .2s
+
+	&__trial
+		margin-top: 24px
+				
+	&.formValid
+		.login__btn
+			background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
+			color: #fff
+			&:hover
+				cursor: pointer
+				background-image: linear-gradient(to top, #f06b5c, #dd2f41)
+				transition: all .2s
+			&:focus
+				box-shadow: 0 0 5px 1px rgba(0,0,0, 0.3)
+			&:active
+				transform: $click
+				transition: all .2s
+
+.mfp-close
+	opacity: .8
+	width: 20px
+	height: 20px
+	line-height: 40px
+	padding: 0
+	top: 0
+	right: -60px
+	&:hover
+		cursor: pointer
+	&:active
+		top: 5px
+	&::before, &::after  
+		transition: all .25s
+		content: ""
+		position: absolute
+		top: 10px
+		left: 0
+		height: 2px
+		width: 20px
+		border-radius: 15px
+		background-color: #fff
+	&::before
+		transform: rotate(45deg)
+	&::after 
+		transform: rotate(-45deg)
 
 
 
