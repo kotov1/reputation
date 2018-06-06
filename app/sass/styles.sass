@@ -166,6 +166,23 @@ a
 						stroke-dashoffset: 38px
 
 
+/* ----- Scroll Animation ----- */
+.animate
+	opacity: 0
+	transition-property:  opacity
+	transition-duration: 1.5s
+	transition-timing-function: ease
+	&.animated
+		opacity: 1
+		transition-property: opacity
+		transition-duration: 1.5s
+		transition-timing-function: ease
+@media only screen and (max-width : 1199px)
+	.animate
+		opacity: 1
+		transition: none
+
+
 /* ----- Titles & text ----- */
 .title
 	font: 2rem/1.25 $text-font
@@ -763,7 +780,6 @@ only screen and (min-resolution: 144dpi)
 				background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
 				border-color: transparent
 			&:active
-				transform: $click
 				transition: all .2s
 
 	&__trial
@@ -1223,6 +1239,621 @@ only screen and (min-resolution: 144dpi)
 		transform: rotate(45deg)
 	&::after 
 		transform: rotate(-45deg)
+
+
+
+
+
+
+
+
+/* ------------------------------------- 
+
+
+	page__tariffs
+
+ ------------------------------------- */
+/* ----- Tooltips ----- */	
+.tooltip
+	display: inline-block
+	width: 18px
+	height: 18px
+	margin-left: 2px
+	background: url('../img/icons/tooltip.svg') no-repeat 50% 50%
+	vertical-align: middle
+[data-tooltip]
+	position: relative
+	z-index: 2
+	cursor: pointer
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after
+	visibility: hidden
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+	filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)"
+	opacity: 0
+	pointer-events: none
+
+/* Position tooltip above the element */
+[data-tooltip]:before 
+	position: absolute
+	top: 150%
+	left: 50%
+	margin-bottom: 5px
+	margin-left: -125px
+	padding: 7px
+	width: 100%
+	min-width: 250px
+	border-radius: 2px
+	background-color: #000
+	background-color: rgba(#000, .6)
+	color: #fff
+	content: attr(data-tooltip)
+	text-align: center
+	font-size: 14px
+	font-style: normal
+	line-height: 1.2
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after 
+	position: absolute
+	top: calc(150% - 5px)
+	left: 50%
+	margin-left: -5px
+	width: 0
+	border-bottom: 5px solid #000
+	border-bottom: 5px solid rgba(#000, .6)
+	border-right: 5px solid transparent
+	border-left: 5px solid transparent
+	content: " "
+	font-size: 0
+	line-height: 0
+
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after 
+	visibility: visible
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"
+	filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)"
+	opacity: 1
+
+/* ----- Custom select ----- */
+.my-select-wrapper
+	width: 100%
+	position: relative
+	user-select: none
+	select
+		display: none
+
+.my-select
+	position: relative
+
+.my-select-trigger
+	position: relative
+	display: flex
+	align-items: center
+	padding: 18px 16px
+	color: $text-color
+	font: 18px $text-font
+	background: #fff
+	border: solid 2px #ebebeb
+	border-top-left-radius: 4px
+	border-top-right-radius: 4px
+	cursor: pointer
+	&:focus,&:active
+		box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(#000,.15)
+	&:after
+		position: absolute
+		display: block
+		content: ''
+		width: 12px
+		height: 12px
+		top: 50%
+		right: 25px
+		margin-top: -3px
+		border-bottom: 2px solid #000
+		border-right: 2px solid #000
+		transform: rotate(45deg) translateY(-50%)
+		transition: all .2s ease-in-out
+		transform-origin: 50% 0
+
+.my-select.opened .my-select-trigger:after
+	margin-top: 3px
+	transform: rotate(-135deg) translateY(-50%)
+
+.my-options
+	max-height: 300px
+	overflow-y: auto
+	position: absolute
+	display: block
+	top: 100%
+	left: 0
+	right: 0
+	margin: 0 2px
+	border-bottom-left-radius: 4px
+	border-bottom-right-radius: 4px
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07)
+	background: #fff
+	transition: all .2s ease-in-out
+	opacity: 0
+	visibility: hidden
+	pointer-events: none
+	transform: translateY(-15px)
+	z-index: 1
+
+.my-select.opened .my-options
+	opacity: 1
+	visibility: visible
+	pointer-events: all
+	transform: translateY(1px)
+
+.my-option
+	position: relative
+	display: block
+	padding: 10px 30px
+	color: $text-color
+	font: 16px $text-font
+	cursor: pointer
+	transition: all .2s ease-in-out
+	&:first-of-type
+		border-radius: 4px 4px 0 0
+	&:last-of-type
+		border-bottom: 0
+		border-radius: 0 0 4px 4px
+	&:hover, &.selection
+		background: rgba(#6ba933,.1)
+
+
+
+
+
+/* ------------------------------------- 
+	purchase
+ ------------------------------------- */
+.purchase
+	padding: 65px 0 120px
+	background-color: #f9f8f6
+	&__title
+		margin: 0 0 25px
+		opacity: 0.8
+		font-weight: 600
+		line-height: 1.5
+		color: $text-color
+
+	&__block
+		display: flex
+		justify-content: space-between
+
+	&__data
+		flex: 0 0 73.5%
+		max-width: 73.5%
+
+	&__tabs
+		display: flex
+		width: 100%
+		padding-left: 8px
+	&__tab
+		width: 100%
+		padding: 10px
+		font-size: 1rem
+		text-align: center
+		color: $text-color
+		border: solid 2px #dedcd6
+		margin: 0 -1px
+		transition: all .2s
+		&:first-child
+			flex: 0 0 35%
+			max-width: 35%
+			border-top-left-radius: 6px
+			border-bottom-left-radius: 6px
+		&:last-child
+			flex: 0 0 36%
+			max-width: 36%
+			border-top-right-radius: 6px
+			border-bottom-right-radius: 6px
+		&--active
+			background-color: #dedcd6
+			transition: all .2s
+		&:hover
+			cursor: pointer
+			background-color: #dedcd6
+			transition: all .2s
+
+	&__tables
+		display: flex
+		justify-content: space-between
+		margin-top: 24px
+		&.tariff-choosen
+			.purchase__table:not(.purchase__table-tariff--active)
+				opacity: .5
+			.purchase__table-tariff
+				&:hover
+					cursor: default
+					&:not(.purchase__table-tariff--active)
+						box-shadow: none
+						top: 0
+						cursor: default
+						.table-ic
+							opacity: .5
+						.table-price
+							height: 40px
+							line-height: 40px
+						div:nth-child(2n)
+							background-color: rgba(#efedeb, .4)
+						div:nth-child(2n+1)
+							background-color: rgba(#fff, .3)
+	&__table
+		div
+			height: 40px
+			font: 1.125rem/40px $text-font
+			color: rgba($text-color,.5)
+		.table-head
+			font-weight: 700
+			color: $text-color
+		div:first-child
+			border-top-left-radius: 8px
+			border-top-right-radius: 8px
+		div:last-child
+			height: 70px
+			border-bottom-left-radius: 8px
+			border-bottom-right-radius: 8px
+		.table-empty
+			height: 80px
+		.table-ic	
+			display: inline-block
+			width: 40px
+			height: 40px
+			&-yes
+				background: url('../img/icons/table-ic-yes.svg') no-repeat 50% 50%
+			&-no
+				background: url('../img/icons/table-ic-no.svg') no-repeat 50% 50%
+		.currency
+			font-size: .9em
+	
+	&__table-titles
+		div
+			padding: 0 16px 0 12px
+		div:nth-child(2n)
+			background-color: rgba(#fff, .3)
+		div:nth-child(2n+3)
+			background-color: rgba(#efedeb, .4)
+		.table-head
+			display: flex
+			width: 100%
+			align-items: flex-end
+			background-color: rgba(#efedeb, .4)
+			height: 80px
+			vertical-align: bottom
+
+	&__table-tariff
+		position: relative
+		flex: 0 0 16.7%
+		max-width: 16.7%
+		margin-left: 15px
+		text-align: center
+		transition: all .2s
+		.table-ic
+			opacity: .5
+		.table-price
+			font-size: 1.25rem
+			color: $text-color
+		div:nth-child(2n)
+			background-color: rgba(#efedeb, .4)
+		div:nth-child(2n+1)
+			background-color: rgba(#fff, .3)
+
+		&:hover, &--active
+			box-shadow: 0 8px 55px -15px rgba(#f06b5c, .7)
+			transition: all .2s
+			cursor: pointer
+			top: -16px
+			.table-ic
+				opacity: 1
+			.table-price
+				height: 56px
+				line-height: 56px
+			div:nth-child(2n)
+				background-color: rgba(#fff, .9)
+			div:nth-child(2n+1)
+				background-color: #f8f6f4
+
+
+	&__order
+		flex: 0 0 24%
+		max-width: 24%
+		padding-top: 76px
+		&.settings
+			.purchase__order-title-form,
+			.purchase__order-back,
+			.purchase__order-form,
+			.purchase__btn-form,
+			.purchase__order-report,
+			.purchase__order-contacts
+				display: none
+
+			.purchase__order-title-set,
+			.purchase__order-settings
+				display: block
+			.purchase__btn-settings,
+			.purchase__order-offer
+				display: inline-block
+
+
+		&-back
+			display: inline-block
+			position: relative
+			font-size: 1rem
+			color: #4a90e1
+			transition: all .2s
+			&::before
+				content: '\2190'
+				position: relative
+				top: -2px
+				display: inline-block
+				margin-right: 6px
+				font-size: 1rem
+				line-height: 1
+				color: #4a90e1
+				transition: all .2s
+			&:hover
+				cursor: pointer
+				color: darken(#4a90e1, 20%)
+				transition: all .2s
+			&:active
+				&::before
+					left: 2px
+					transition: all .2s
+					
+
+
+		&-title
+			padding-left: 16px
+			margin: 0
+			opacity: 0.8
+			font-size: 1.5rem
+			font-weight: 700
+			line-height: 1
+			color: $text-color
+			&-set
+				display: none
+				padding-top: 36px
+			&-form
+				padding-top: 10px
+		
+		&-settings
+			display: none
+
+		&-form
+			margin-top: 24px
+		&-label
+			position: relative
+			display: block
+		&-input
+			display: block
+			width: 100%
+			height: 64px
+			margin-bottom: 15px
+			padding: 20px 16px
+			border: solid 2px #ebebeb
+			border-radius: 4px
+			font: 18px $text-font
+			color: $text-color
+			background-color: #fff
+			&:focus
+				padding: 28px 16px 12px
+				outline: none
+				box-shadow: inset 0 0 5px rgba(#fff,.2)
+				&::-webkit-input-placeholder
+					color: transparent!important
+				&:-moz-placeholder
+					color: transparent!important
+				&::-moz-placeholder
+					color: transparent!important
+				&:-ms-input-placeholder
+					color: transparent!important
+				& ~ .hint
+					opacity: 1
+					top: 12px
+			+ .error
+				display: block
+				margin: -10px 0 0 0
+				text-align: left
+				font: 14px $text-font
+				color: #f06b5c
+			~ .hint
+				font-size: 12px
+				position: absolute
+				top: 0
+				left: 18px
+				opacity: 0
+				color: rgba($text-color,.5)
+				transition: all 0.2s ease-in-out
+
+			&::-webkit-input-placeholder
+				color: rgba($text-color,.5)
+			&:-moz-placeholder
+				color: rgba($text-color,.5)
+			&::-moz-placeholder
+				color: rgba($text-color,.5)
+			&:-ms-input-placeholder
+				color: rgba($text-color,.5)
+			&:focus:required:invalid,
+				color: $text-color
+			&:required:valid,
+				color: $text-color
+
+		&-license, &-workplace, &-safe, &-total
+			margin-top: 30px
+			color: $text-color
+			padding: 13px 16px
+			&-title
+				font-size: .75rem
+				opacity: .5
+			&-text
+				font-size: 1.125rem
+				line-height: 1
+
+		&-select
+			margin-top: 10px
+		&-discount
+			font-size: .875rem
+			color: #c0847c
+			padding: 13px 16px
+			border-radius: 4px
+			background-color: #f4f1ee
+
+		&-workplace
+			margin-top: 30px
+
+		&-total
+			margin-top: 0
+			&-text
+				font-size: 1.5rem
+				font-weight: 700
+
+		&-btn-wrap
+			margin-top: 18px
+			position: relative
+			z-index: 1
+			&::before
+				display: none
+				content: ''
+				position: absolute
+				top: 20px
+				left: 50%
+				margin-left: -114px
+				z-index: -1
+				width: 228px
+				height: 48px
+				opacity: 0.5
+				border-radius: 3.4px
+				filter: blur(13.6px)
+				background-image: linear-gradient(to bottom, #f06b5c, #dd2f41), linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))
+
+		&-info
+			text-align: center
+			margin-top: 30px
+		&-link
+			font-size: 1rem $text-font
+			color: $text-color
+			position: relative
+			padding-bottom: 2px
+			&::before
+				content: ''
+				display: block
+				width: 100%
+				height: 1px
+				position: absolute
+				left: 0
+				bottom: 0
+				background: rgba($text-color, .1)
+				z-index: 0
+				transition: all .2s
+			&:hover
+				color: $text-color
+				text-decoration: none
+				&:before
+					transform: scale(0)
+					transition: all .2s
+				&:hover
+					text-decoration: none
+		&-offer
+			display: none
+
+		&-contacts
+			margin-top: 20px
+			text-align: center
+			&-link
+				font: 1rem $text-font
+				color: $text-color
+				white-space: nowrap
+				position: relative
+				&::before
+					content: ''
+					display: block
+					width: 100%
+					height: 1px
+					position: absolute
+					left: 0
+					bottom: 0
+					background: rgba($text-color, .1)
+					z-index: 0
+					transform: scale(0)
+					transition: all .2s
+				&:hover
+					color: $text-color
+					text-decoration: none
+					&:before
+						transform: scale(1)
+						transition: all .2s
+					&:hover
+						text-decoration: none
+
+
+
+
+
+	&__btn
+		max-width: 272px
+		padding: 18px 15px
+		border-radius: 6px
+		font: 700 18px $text-font
+		width: 100%
+		&-settings
+			display: none
+			background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
+			color: #fff
+			&:hover
+				cursor: pointer
+				background-image: linear-gradient(to top, #f06b5c, #dd2f41)
+				transition: all .2s
+			&:focus
+				box-shadow: 0 0 5px 1px rgba(0,0,0, 0.3)
+			&:active
+				transform: $click
+				transition: all .2s
+
+		&-form
+			background: rgba(#000, .3)
+			color: rgba(#fff, .5)
+			&:hover
+				cursor: default
+				background: rgba(#000, .3)
+				color: rgba(#fff, .5)
+			&:focus
+				box-shadow: none
+			&:active
+				transform: none
+			
+.purchase__order.formValid
+	.purchase__order-btn-wrap
+		&::before
+			display: block
+	.purchase__btn-form
+		background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
+		color: #fff
+		&:hover
+			cursor: pointer
+			background-image: linear-gradient(to top, #f06b5c, #dd2f41)
+			transition: all .2s
+		&:focus
+			box-shadow: 0 0 5px 1px rgba(0,0,0, 0.3)
+		&:active
+			transform: $click
+			transition: all .2s
+
+.report-icon
+	display: inline-block
+	width: 12px
+	height: 14px
+	margin-right: 7px
+	background: url('../img/icons/download-report.svg') no-repeat 50% 50%
+	position: relative
+	top: 1px
+
+
 
 
 
