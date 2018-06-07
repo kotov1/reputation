@@ -3,7 +3,12 @@ $(function() {
 	"use strict";
 
 	// openning modal login form
-	$('#js-login-call').magnificPopup({
+	$('.login-form-call').magnificPopup({
+		type:'inline'
+	});
+
+	// openning modal login form
+	$('.trial-form-call').magnificPopup({
 		type:'inline'
 	});
 
@@ -82,8 +87,8 @@ $(function() {
 	});
 
 
-	// Jquery form validation
-	$(".login__form form").validate({
+	// Jquery login form validation
+	$(".modal-form__form-login form").validate({
 		rules: {
 			email: {
 				required: true,
@@ -99,11 +104,74 @@ $(function() {
 			password: "Пожалуйста введите пароль",
 		}
 	});
-	$('.login__form input').change(function() {
-		if($(".login__form form").valid()) {
-			$('.mfp-bg, .login').addClass('formValid');
+	$('.modal-form__form-login input').change(function() {
+		if($(".modal-form__form-login form").valid()) {
+			$('.mfp-bg, .modal-form-login').addClass('formValid');
 		}
-	})
+	});
+
+	// Jquery trial form validation
+	$(".modal-form__form-trial form").validate({
+		rules: {
+			tel: {
+				required: true,
+				minlength: 17
+			}
+		},
+		messages: {
+			tel: {
+				required: "Пожалуйста введите номер телефона",
+				minlength: "Поле заполнеено некорректно"
+			}
+		}
+	});
+	$('.modal-form__form-trial input').change(function() {
+		if($(".modal-form__form-trial form").valid()) {
+			$('.mfp-bg, .modal-form-trial').addClass('formValid');
+		}
+	});
+	if(($('.js-tel-mask').length > 0)){
+		$('.js-tel-mask').mask("+7 (000) 000-00-00");
+	}
+
+	// openning modal confirm form
+	$('.confirm-form-call').magnificPopup({
+		items: {
+			src: '#confirm-form',
+			type: 'inline'
+		}
+	});
+
+
+	// Jquery confirm form validation
+	$(".modal-form__form-confirm form").validate({
+		rules: {
+			confirm: {
+				required: true,
+				minlength: 4
+			}
+		},
+		messages: {
+			confirm: {
+				required: "",
+				minlength: ""
+			}
+		}
+	});
+	$('.modal-form__form-confirm input').change(function() {
+		if($(".modal-form__form-confirm form").valid()) {
+			$('.mfp-bg, .modal-form-confirm').addClass('formValid');
+		}
+	});
+	if(($('.js-confirm-num-mask').length > 0)){
+		$('.js-confirm-num-mask').mask('0000');
+	}
+
+
+
+
+
+
 
 
 	// Scroll Animation
@@ -118,8 +186,6 @@ $(function() {
 	});
 
 
-
-
 	// tariffs page tabs
 	$(".purchase__content-block").not(":first").hide();
 
@@ -127,6 +193,23 @@ $(function() {
 		$(".purchase__tab").removeClass("purchase__tab--active").eq($(this).index()).addClass("purchase__tab--active");
 		$(".purchase__content-block").hide().eq($(this).index()).fadeIn("normal");
 	}).eq(0).addClass("purchase__tab--active");
+
+
+	// responsive tariffs tables
+	$(document).ready(function() {
+		if( $(window).width() < 768 ) {
+			$(".purchase__table-tariff").not(":first").hide();
+			$(".purchase__table-tariff").first().addClass('purchase__table-tariff--active')
+			$(".purchase__content-tab").click(function() {
+				$(".purchase__content-tab").removeClass("purchase__content-tab--active").eq($(this).index()).addClass("purchase__content-tab--active");
+				$(".purchase__table-tariff").hide().eq($(this).index()).fadeIn("normal").addClass('purchase__table-tariff--active');
+			}).eq(0).addClass("purchase__content-tab--active");
+		}
+	});
+
+
+
+
 
 	// tariffs choose
 	$('.purchase__table-tariff').click(function() {
@@ -163,7 +246,10 @@ $(function() {
 				email: true
 			},
 			name: "required",
-			phone: "required",
+			tel: {
+				required: true,
+				minlength: 17
+			},
 			inn: "required"
 		},
 		messages: {
@@ -172,7 +258,10 @@ $(function() {
 				email: "Неккоректный email"
 			},
 			name: "Пожалуйста введите имя",
-			phone: "Пожалуйста введите контактный номер",
+			tel: {
+				required: "Пожалуйста введите номер телефона",
+				minlength: "Поле заполнеено некорректно"
+			},
 			inn: "Пожалуйста введите ИНН организации"
 		}
 	});
@@ -181,8 +270,6 @@ $(function() {
 			$('.purchase__order').addClass('formValid');
 		}
 	})
-
-
 
 
 
@@ -209,7 +296,7 @@ $(function() {
 	}, function() {
 		$(this).parents(".my-options").removeClass("option-hover");
 	});
-	$(".my-select-trigger").on("click", function() {
+	$(".my-select-trigger").on("click", function(event) {
 		$(".my-select").removeClass("opened");
 		$('html').one('click',function() {
 			$(".my-select").removeClass("opened");

@@ -377,17 +377,20 @@
 		modal login form
 	 ------------------------------------- */
 	.login
-	.login__block
+	.modal-form__block
 		padding: 15px
-	.login__title
+	.modal-form__title
 		font-size: 1.5rem
-	.login__form
+	.modal-form__form
 		margin-top: 30px
-	.login__subtitle, .login__link, .login__client
+	.modal-form__subtitle, .modal-form__link, .modal-form__client, .modal-form-confirm-resend
 		font-size: 16px
 	.checkbox .checkbox-text
 		font-size: 14px
 		margin-left: 10px
+	.modal-form-trial__subtitle
+		margin-left: 0
+		margin-right: 0
 	.mfp-close
 		right: 0
 
@@ -400,24 +403,82 @@
 		page__tariffs
 
  	 ------------------------------------- */
+	[data-tooltip]:before 
+		min-width: 150px
+		font-size: 12px
+		margin-left: -20px
 	/* ------------------------------------- 
 		purchase
 	 ------------------------------------- */
 	.purchase__order
 		max-width: 400px
 		margin: 0 auto
+		padding-top: 15px
+		.my-select-trigger
+			font-size: 16px
 	.purchase__order-title
-		font-size: 20px
+		font-size: 18px
+	.purchase__order-license-text, .purchase__order-workplace-text, .purchase__order-safe-text
+		font-size: 16px
+	.purchase__order-license, .purchase__order-workplace, .purchase__order-safe, .purchase__order-total
+		margin-top: 10px
 	.purchase__order.settings .purchase__order-settings, .purchase__order-form
 		display: block
 	.responsive-block, .purchase__order-label
 		flex: 0 0 100%
 		max-width: 100%
+	.purchase__order-input
+		font-size: 16px
+		&::placeholder
+			font-size: 16px
 	.purchase__order-btn-wrap
 		margin-top: 30px
 
+	.purchase__tabs
+		display: block
+		padding-left: 0
+	.purchase__tab
+		margin: -2px 0
+	.purchase__tab:first-child, .purchase__tab:last-child
+		max-width: 100%
+		border-radius: 0
+	.purchase__tab:first-child
+		border-top-left-radius: 6px
+		border-top-right-radius: 6px
+	.purchase__tab:last-child
+		border-bottom-left-radius: 6px
+		border-bottom-right-radius: 6px
 
 
+	.purchase__content-tabs-wrap
+		display: flex
+
+	.purchase__table-titles
+		flex: 0 0 64%
+		max-width: 64%
+	.purchase__table-tariff-wrap
+		justify-content: center
+		flex: 0 0 35%
+		max-width: 35%
+	.purchase__table-tariff
+		margin-left: 10px
+		flex: 0 0 100%
+		max-width: 100%
+		
+	.purchase__table div
+		display: flex
+		align-items: center
+		font-size: 14px
+		line-height: 1.2
+		padding: 0 5px
+	.purchase__table-tariff div
+		justify-content: center
+	.purchase__table-titles .table-head
+		line-height: 1.4
+		align-items: center
+	.purchase__table-tariff .table-price
+		font-size: 14px
+		line-height: 1.2
 
 	/**/
 
@@ -475,49 +536,3 @@
 
 
 	/**/
-
-
-
-@media only screen and (max-width : 320px)
-
-	/**/
-
-
-
-
-
-// @media only screen and (min-width : 320px)
-
-// 	/**/
-
-
-
-// @media only screen and (min-width : 480px)
-
-// 	/**/
-
-
-// @media only screen and (min-width : 576px)
-// .container 
-// 	max-width: 540px
-// 	/**/
-
-
-// @media only screen and (min-width : 768px)
-// .container 
-// 	max-width: 720px
-// 	/**/
-
-
-
-// @media only screen and (min-width : 992px)
-// .container 
-// 	max-width: 960px
-// 	/**/
-
-
-
-// @media only screen and (min-width : 1200px)
-// .container 
-// 	max-width: 1140px
-// 	/**/

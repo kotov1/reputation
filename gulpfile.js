@@ -28,6 +28,7 @@ gulp.task('js', function() {
 		'app/libs/slick-carousel/slick/slick.min.js',
 		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/libs/jquery-validation/dist/jquery.validate.min.js',
+		'app/libs/jquery.mask.min.js',
 		'app/js/common.js'
 		])
 	.pipe(concat('scripts.js'))

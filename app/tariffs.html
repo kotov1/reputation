@@ -46,7 +46,7 @@
 
 				<div class="header__block">
 					<div class="header__logo">
-						<a href="index.html"><img src="img/logo.svg" alt="Логотип"></a>
+						<img src="img/logo.svg" alt="Логотип">
 					</div>
 					
 					<div class="header__search">
@@ -59,7 +59,7 @@
 				<div class="header__block header__block--right">
 					<a href="#" class="header__link header__tarrifs-link">Тарифы</a>
 					<a href="#" class="header__link header__partners-link">Партнерство</a>
-					<a href="#login" class="btn header__btn" id="js-login-call">Вход для партнеров</a>
+					<a href="#login" class="btn header__btn login-form-call">Вход для партнеров</a>
 				</div>
 
 			</div>
@@ -87,149 +87,170 @@
 					<div class="purchase__content">
 
 						<div class="purchase__content-block">
+							
+							<!-- enable on mobile devices  -->
+							<div class="purchase__content-tabs-wrap">
+								<div class="purchase__content-tabs-title">Тарифы</div>
+								<div class="purchase__content-tabs">
+									<div class="purchase__content-tab purchase__content-tab--active">Специалист</div>
+									<div class="purchase__content-tab">Профи</div>
+									<div class="purchase__content-tab">Эксперт</div>
+								</div>
+							</div>
+
 							<div class="purchase__tables">
 								<div class="purchase__table purchase__table-titles">
 									<div class="table-head">Представленная информация</div>
-									<div>Регистрационные данные ЕГРЮЛ</div>
-									<div>Регистрационные данные ЕГРИП</div>
-									<div>Исторические данные ФНС, Росстат</div>
-									<div>Исполнительные производства</div>
-									<div>Финансовая отчётность</div>
-									<div>Особый реестр ФНС</div>
-									<div>Арбитражные дела</div>
-									<div>Лицензии</div>
-									<div>Контакты</div>
-									<div>Сообщения о банкротстве</div>
-									<div>Сообщения о залоге</div>
-									<div>Торговые знаки</div>
-									<div>Плановые проверки</div>
-									<div>Государственные контракты</div>
-									<div>Сообщения эмитентов</div>
+									<div><span>Регистрационные данные ЕГРЮЛ</span></div>
+									<div><span>Регистрационные данные ЕГРИП</span></div>
+									<div><span>Исторические данные ФНС, Росстат</span></div>
+									<div><span>Исполнительные производства</span></div>
+									<div><span>Финансовая отчётность</span></div>
+									<div><span>Особый реестр ФНС</span></div>
+									<div><span>Арбитражные дела</span></div>
+									<div><span>Лицензии</span></div>
+									<div><span>Контакты</span></div>
+									<div><span>Сообщения о банкротстве</span></div>
+									<div><span>Сообщения о залоге</span></div>
+									<div><span>Торговые знаки</span></div>
+									<div><span>Плановые проверки</span></div>
+									<div><span>Государственные контракты</span></div>
+									<div><span>Сообщения эмитентов</span></div>
 									<div class="table-head">Возможности</div>
 									<div>
-										Выписка ЕГРЮЛ / ЕГРИП с эцп и без 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Выписка ЕГРЮЛ / ЕГРИП с эцп и без
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Подписки и уведомления 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Подписки и уведомления
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Экспресс-проверка 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Экспресс-проверка
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Проверка паспорта
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Проверка паспорта
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Визуальная схема 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Визуальная схема
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Проверка счёта 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Проверка счёта
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Метка «Система налогооблажения» 
-										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										<span>Метка «Система налогооблажения»
+											<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 									<div>
-										Метка «Риск блокировки счёта» 
+										<span>Метка «Риск блокировки счёта»
 										<i class="tooltip" data-tooltip="Текст подсказки в одну строку"></i>
+										</span>
 									</div>
 								</div>
 								<!-- purchase__table-titles end -->
 
-								<div class="purchase__table purchase__table-tariff">
-									<div class="table-price">15 000 <span class="currency">₽</span></div>
-									<div class="table-head">Специалист</div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>	
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div class="table-empty"></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
+								<div class="purchase__table-tariff-wrap">
+									<div class="purchase__table purchase__table-tariff">
+										<div class="table-price">15 000 <span class="currency">₽</span></div>
+										<div class="table-head">Специалист</div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>	
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div class="table-empty"></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+									</div>
+									<!-- purchase__table-specialist end -->
+									
+									<div class="purchase__table purchase__table-tariff">
+										<div class="table-price">25 000 <span class="currency">₽</span></div>
+										<div class="table-head">Профи</div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div class="table-empty"></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+										<div><i class="table-ic table-ic-no"></i></div>
+									</div>
+									<!-- purchase__table-specialist end -->
+									
+									<div class="purchase__table purchase__table-tariff">
+										<div class="table-price">35 000 <span class="currency">₽</span></div>
+										<div class="table-head">Эксперт</div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div class="table-empty"></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+										<div><i class="table-ic table-ic-yes"></i></div>
+									</div>
+									<!-- purchase__table-specialist end -->
 								</div>
-								<!-- purchase__table-specialist end -->
-
-								<div class="purchase__table purchase__table-tariff">
-									<div class="table-price">25 000 <span class="currency">₽</span></div>
-									<div class="table-head">Профи</div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div class="table-empty"></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-									<div><i class="table-ic table-ic-no"></i></div>
-								</div>
-								<!-- purchase__table-specialist end -->
-
-								<div class="purchase__table purchase__table-tariff">
-									<div class="table-price">35 000 <span class="currency">₽</span></div>
-									<div class="table-head">Эксперт</div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div class="table-empty"></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-									<div><i class="table-ic table-ic-yes"></i></div>
-								</div>
-								<!-- purchase__table-specialist end -->
 								
 							</div>
 							<!-- purchase__tables end -->
@@ -302,7 +323,7 @@
 								<span class="hint">Как к вам обращаться</span>
 							</label>
 							<label class="purchase__order-label">
-								<input type="tel" name="phone" class="purchase__order-input" placeholder="Контактный номер" required>
+								<input type="tel" name="tel" class="purchase__order-input js-tel-mask" placeholder="Контактный номер" required>
 								<span class="hint">Контактный номер</span>
 							</label>
 							<label class="purchase__order-label">
@@ -427,19 +448,20 @@
 
 
 	<!-- modal login form -->
-	<div class="login	mfp-hide" id="login">
-		<div class="login__block">
+	<div class="modal-form modal-form-login	mfp-hide" id="login">
+		<div class="modal-form__block">
 			<div class="mfp-close"></div>
-			<div class="login__title">Вход для клиентов</div>
-			<div class="login__subtitle">Введите электронную почту и пароль к&nbsp;Вашему личному кабинету</div>
-			<div class="login__form">
+			<div class="modal-form__title">Вход для клиентов</div>
+			<div class="modal-form__subtitle">Введите электронную почту и пароль к&nbsp;Вашему личному кабинету</div>
+			<div class="modal-form__form modal-form__form-login">
 				<form action="#">
-					<label class="login__label">
-						<input type="email" class="login__input" name="email" placeholder="Электронная почта">
+
+					<label class="modal-form__label">
+						<input type="email" class="modal-form__input" name="email" placeholder="Электронная почта">
 						<small class="field-hint">Электронная почта</small>
 					</label>
-					<label class="login__label">
-						<input type="password" class="login__input" name="password" placeholder="Пароль">
+					<label class="modal-form__label">
+						<input type="password" class="modal-form__input" name="password" placeholder="Пароль">
 						<small class="field-hint">Пароль</small>
 					</label>
 					<label class="checkbox">
@@ -454,21 +476,83 @@
 						<span class="checkbox-text">Запомнить на этом компьютере</span>
 					</label>
 
-					<button type="submit" class="btn login__btn">Войти</button>
+					<button type="submit" class="btn modal-form__btn">Войти</button>
 
-					<a href="#" class="login__link login__remember">Забыли пароль?</a>
+					<a href="#" class="modal-form__link modal-form__remember">Забыли пароль?</a>
 
-					<a href="#" class="login__client">Я хочу стать клиентом</a>
+					<a href="#" class="modal-form__client modal-form-login__client">Я хочу стать клиентом</a>
 
-					<a href="#" class="login__link login__trial">Я хочу попробовать бесплатно</a>
+					<a href="#trial-form" class="modal-form__link modal-form__trial trial-form-call">Я хочу попробовать бесплатно</a>
 
 				</form>
 			</div>
-			<!-- login__form end -->
+			<!-- modal-form__form end -->
 		</div>
-		<!-- login__block end -->
+		<!-- modal-form__block end -->
 	</div>
 	<!-- modal login form end -->
+
+
+
+
+	<!-- modal trial form -->
+	<div class="modal-form modal-form-trial mfp-hide" id="trial-form">
+		<div class="modal-form__block">
+			<div class="mfp-close"></div>
+			<div class="modal-form__title">Попробовать бесплатно</div>
+			<div class="modal-form__subtitle">Введите номер телефона и активируйте демо&nbsp;доступ на 24&nbsp;часа</div>
+			<div class="modal-form__form modal-form__form-trial">
+				<form action="#">
+
+					<label class="modal-form__label">
+						<input type="tel" class="modal-form__input js-tel-mask" name="tel" placeholder="Введите номер телефона">
+						<small class="field-hint">Введите номер телефона</small>
+					</label>
+
+					<button type="button" class="btn modal-form__btn confirm-form-call">Далее</button>
+
+					<div class="modal-form-trial__subtitle">Нажимая далее вы соглашаетесь на <a class="modal-form__agree" href="#">обработку персональных данных</a>, а так же с <a class="modal-form__agree" href="#">Лицензионным соглашением</a></div>
+
+					<a href="#login" class="modal-form__client login-form-call">Вход для клиентов</a>
+
+					<a href="#" class="modal-form__link modal-form__trial">Я хочу стать клиентом</a>
+
+				</form>
+			</div>
+			<!-- modal-form__form end -->
+		</div>
+		<!-- modal-form__block end -->
+	</div>
+	<!-- modal trial form end -->
+
+
+	<!-- modal confirm form -->
+	<div class="modal-form modal-form-confirm mfp-hide" id="confirm-form">
+		<div class="modal-form__block">
+			<div class="mfp-close"></div>
+			<div class="modal-form__subtitle">Введите код подтверждения, отправленный на номер <span class="confirm-number">+7 (999) 231-33-22</span></div>
+			<div class="modal-form__form modal-form__form-confirm">
+				<form action="#">
+
+					<label class="modal-form__label modal-form__label-confirm">
+						<input type="text" class="modal-form__input modal-form__input-confirm js-confirm-num-mask" name="confirm" autofocus="autofocus">
+						<div class="modal-form-confirm-resend"><a href="#">Отправить код повторно</a></div>
+						<small class="field-hint">Код из SMS</small>
+					</label>
+
+					<button type="submit" class="btn modal-form__btn">Подтвердить</button>
+
+					<a href="#trial-form" class="modal-form__link modal-form__trial trial-form-call">Изменить номер телефона</a>
+
+				</form>
+			</div>
+			<!-- modal-form__form end -->
+		</div>
+		<!-- modal-form__block end -->
+	</div>
+	<!-- modal confirm form end -->
+
+
 
 
 

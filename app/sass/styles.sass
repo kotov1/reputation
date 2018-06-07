@@ -1053,12 +1053,36 @@ only screen and (min-resolution: 144dpi)
 						
 
 
+
 /* ------------------------------------- 
 	modal login form
  ------------------------------------- */
-.login
-	max-width: 364px
+.modal-form
 	margin: 0 auto
+	&-login
+		max-width: 364px
+	&-trial
+		max-width: 456px
+		&__subtitle
+			margin: 30px -15px 0
+			font: 400 1.125rem $text-font
+			color: rgba(#fff, .5)
+	&-confirm
+		max-width: 400px
+		&-resend
+			margin-left: 16px
+			font-size: 18px
+			line-height: 1.4
+			text-align: left
+			flex: 0 0 48%
+			max-width: 48%
+			a
+				color: #fff
+				&:hover
+					color: #fff
+					text-decoration: none
+					cursor: pointer
+				
 	&__block
 		position: relative
 		padding: 10px 0
@@ -1072,9 +1096,17 @@ only screen and (min-resolution: 144dpi)
 		color: rgba(#fff, .5)
 	&__form
 		margin-top: 48px
+		max-width: 364px
+		margin-left: auto
+		margin-right: auto
+			
 	&__label
 		position: relative
 		display: block
+		&-confirm
+			display: flex
+			align-items: center
+			justify-content: space-between
 	&__input
 		display: block
 		width: 100%
@@ -1133,6 +1165,11 @@ only screen and (min-resolution: 144dpi)
 		&:required:valid,
 			color: #fff
 
+		&-confirm
+			margin-bottom: 0
+			flex: 0 0 48%
+			max-width: 48%
+
 	&__btn
 		padding: 22px 15px
 		display: block
@@ -1148,7 +1185,12 @@ only screen and (min-resolution: 144dpi)
 		&:active
 			transform: none
 			
-
+	&__agree
+		color: #fff
+		&:hover
+			cursor: pointer
+			text-decoration: none
+			color: #fff
 
 	&__link
 		display: inline-block
@@ -1176,10 +1218,9 @@ only screen and (min-resolution: 144dpi)
 
 	&__remember
 		margin-top: 16px
-
 	&__client
 		display: block
-		margin-top: 55px
+		margin-top: 30px
 		padding: 22px 15px
 		font: 700 18px $text-font
 		color: #fff
@@ -1195,12 +1236,14 @@ only screen and (min-resolution: 144dpi)
 		&:active
 			transform: $click
 			transition: all .2s
+	&-login__client
+		margin-top: 55px
 
 	&__trial
 		margin-top: 24px
 				
 	&.formValid
-		.login__btn
+		.modal-form__btn
 			background-image: linear-gradient(to bottom, #f06b5c, #dd2f41)
 			color: #fff
 			&:hover
@@ -1278,7 +1321,7 @@ only screen and (min-resolution: 144dpi)
 /* Position tooltip above the element */
 [data-tooltip]:before 
 	position: absolute
-	top: 150%
+	bottom: 150%
 	left: 50%
 	margin-bottom: 5px
 	margin-left: -125px
@@ -1298,12 +1341,12 @@ only screen and (min-resolution: 144dpi)
 /* Triangle hack to make tooltip look like a speech bubble */
 [data-tooltip]:after 
 	position: absolute
-	top: calc(150% - 5px)
+	bottom: 150%
 	left: 50%
 	margin-left: -5px
 	width: 0
-	border-bottom: 5px solid #000
-	border-bottom: 5px solid rgba(#000, .6)
+	border-top: 5px solid #000
+	border-top: 5px solid rgba(#000, .6)
 	border-right: 5px solid transparent
 	border-left: 5px solid transparent
 	content: " "
@@ -1413,7 +1456,7 @@ only screen and (min-resolution: 144dpi)
 	purchase
  ------------------------------------- */
 .purchase
-	padding: 65px 0 120px
+	padding: 65px 0 104px
 	background-color: #f9f8f6
 	&__title
 		margin: 0 0 25px
@@ -1460,11 +1503,12 @@ only screen and (min-resolution: 144dpi)
 			cursor: pointer
 			background-color: #dedcd6
 			transition: all .2s
-
+	&__content
+		padding-top: 24px
 	&__tables
 		display: flex
 		justify-content: space-between
-		margin-top: 24px
+		min-height: 1126px
 		&.tariff-choosen
 			.purchase__table:not(.purchase__table-tariff--active)
 				opacity: .5
@@ -1513,8 +1557,10 @@ only screen and (min-resolution: 144dpi)
 			font-size: .9em
 	
 	&__table-titles
+		flex: 0 0 367px
+		max-width: 367px
 		div
-			padding: 0 16px 0 12px
+			padding: 0 14px 0 12px
 		div:nth-child(2n)
 			background-color: rgba(#fff, .3)
 		div:nth-child(2n+3)
@@ -1527,10 +1573,14 @@ only screen and (min-resolution: 144dpi)
 			height: 80px
 			vertical-align: bottom
 
+	&__table-tariff-wrap
+		width: 100%
+		display: flex
+		justify-content: space-between
 	&__table-tariff
 		position: relative
-		flex: 0 0 16.7%
-		max-width: 16.7%
+		flex: 0 0 30%
+		max-width: 30%
 		margin-left: 15px
 		text-align: center
 		transition: all .2s
@@ -1558,6 +1608,34 @@ only screen and (min-resolution: 144dpi)
 				background-color: rgba(#fff, .9)
 			div:nth-child(2n+1)
 				background-color: #f8f6f4
+
+
+	&__content-tabs-wrap
+		display: none
+		flex-direction: column
+		align-items: center
+		margin-bottom: 24px
+	&__content-tabs-title
+		font-size: 16px
+		font-weight: 700
+		padding: 10px 0
+	&__content-tabs
+		display: flex
+		width: 100%
+		justify-content: space-between
+	&__content-tab
+		flex: 0 0 32%
+		max-width: 32%
+		padding: 5px
+		font-size: 14px
+		text-align: center
+		color: $text-color
+		border: solid 1px #dedcd6
+		margin: 0 -1px
+		transition: all .2s
+		&--active
+			background-color: #dedcd6
+			transition: all .2s
 
 
 	&__order
@@ -1793,8 +1871,6 @@ only screen and (min-resolution: 144dpi)
 
 
 
-
-
 	&__btn
 		max-width: 272px
 		padding: 18px 15px
@@ -1843,6 +1919,15 @@ only screen and (min-resolution: 144dpi)
 		&:active
 			transform: $click
 			transition: all .2s
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)				
+	.purchase__order-btn-wrap
+		&::before
+			display: none!important
+	.purchase__order.formValid
+		.purchase__btn
+			box-shadow: 0 3px 20px -3px rgba(#f06b5c,1)
 
 .report-icon
 	display: inline-block
